@@ -4,5 +4,3 @@
     name: mariadb-server
     state: latest
     update_cache: yes
-  when: configure_install | success
-  register: install_mariadb
