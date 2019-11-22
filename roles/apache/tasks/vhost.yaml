@@ -2,11 +2,13 @@
 - name: add template site
   template:
     src: "{{vhost_name_site}}.j2"
-    dest: /etc/apache2/sites-available/site-test.conf
+    dest: "/etc/apache2/sites-available/{{vhost_name_site}}.conf"
     owner: root
     group: root
     mode: 0644
     backup: yes
 
 - name: available conf
-  command: a2ensite site-test.conf
+  command: 
+    cmd: "a2ensite {{vhost_name_site}}.conf"
+    create: "/etc/apache2/sites-enabled/{{vhost_name_site}}.conf"
