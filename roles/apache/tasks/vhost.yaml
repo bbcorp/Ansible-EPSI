@@ -25,8 +25,11 @@
     cmd: a2dissite default-ssl.conf
     creates: /etc/apache2/sites-enabled/default-ssl.conf
 
-
-
+#- name: stat foo
+#  stat: path=/path/to/foo
+#  register: foo_stat
+#
+#  when: foo_stat.stat.exists
 
 
 

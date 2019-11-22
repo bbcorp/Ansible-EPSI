@@ -28,11 +28,11 @@
     backup: yes
 
 - name: rm tmp files
-  command: 
-    cmd: rm -rf /tmp/wordpress
-    creates: /tmp/wordpress
+  file:
+    path: /tmp/wordpress
+    state: absent
 
 - name: rm tmp files
-  command: 
-    cmd: rm /tmp/wordpress-5.3-fr_FR.tar.gz
-    creates: /tmp/wordpress-5.3-fr_FR.tar.gz
+  file:
+    path: /tmp/wordpress-5.3-fr_FR.tar.gz
+    state: absent
