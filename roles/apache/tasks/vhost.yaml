@@ -1,0 +1,8 @@
+---
+- name: add template site
+  templates:
+    src: site-test.j2
+    dest: /etc/apache2/sites-available/site-test.conf
+    backup: yes 
+- name: available conf
+  command: a2ensite /etc/apache2/sites-available/site-test.conf
