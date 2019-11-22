@@ -1,0 +1,28 @@
+---
+- name: copy wordpress tar
+  copy:
+    src: /../../../wordpress/wordpress-5.3-fr_FR.tar.gz
+    dest: /tmp
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: decompress
+  command: 
+    cmd: tar -zxf /tmp/wordpress-5.3-fr_FR.tar.gz -C /tmp
+    creates: /var/www/license.txt
+
+- name: decompress
+  command: 
+    cmd: mv /tmp/wordpress/* /var/www/
+    creates: /var/www/license.txt
+
+- name: add template config mysql
+  template:
+    src: wordpress-config-db.j2
+    dest: /var/www/
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
