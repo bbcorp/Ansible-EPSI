@@ -4,6 +4,8 @@
     name: "{{ database_username }}"
     password: "{{ database_user_password }}"
     priv: '{{ database_name }}.*:ALL'
-    host_all: yes
+    host: "%"
+    login_user: "{{ mariadb_login_user }}"
+    login_password: "{{ mariadb_login_password }}"
     login_unix_socket: "{{ mariadb_socket }}"
     state: present
