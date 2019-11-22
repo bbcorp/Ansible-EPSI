@@ -1,2 +1,4 @@
 ---
-# tasks file for mariadb
+# tasks file for common
+- name: include install mariadb server
+  include_tasks: install_mariadb.yaml
