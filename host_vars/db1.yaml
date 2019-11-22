@@ -1,5 +1,4 @@
 ---
 mariadb_root_password: password
 mariadb_socket: /var/run/mysqld/mysqld.sock
-database_username: wpadmin
-database_user_password: password123
+
