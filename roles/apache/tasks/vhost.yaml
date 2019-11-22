@@ -8,5 +8,5 @@
     mode: 0644
     backup: yes
 
-- name: available conf
-  command: a2ensite /etc/apache2/sites-available/site-test.conf
+#- name: available conf
+#  command: a2ensite /etc/apache2/sites-available/site-test.conf
