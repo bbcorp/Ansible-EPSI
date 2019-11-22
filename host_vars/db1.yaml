@@ -1,0 +1,3 @@
+---
+database_name: wordpress
+database_collation: utf8-general-ci

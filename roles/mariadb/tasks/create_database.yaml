@@ -1,6 +1,6 @@
 ---
-- name: Create a database {{database_name}}
+- name: Create a database "{{ database_name }}"
   mysql_db:
-     name: wordpress
-     collation: utf8_general_ci
-     state: present     
+     name: "{{ database_name }}"
+     collation: "{{ database_collation }}"
+     state: present
