@@ -1,11 +1,11 @@
 <VirtualHost *:80>
-        ServerAlias {{vhost_alias}}
-        DocumentRoot {{vhost_root_directory}}
+        ServerAlias {{ vhost_alias }}
+        DocumentRoot {{ vhost_root_directory }}
         <Directory />
                 Options FollowSymLinks
                 AllowOverride none
         </Directory>
-        <Directory {{vhost_root_directory}}>
+        <Directory {{ vhost_root_directory }}>
                 Options FollowSymLinks MultiViews
                 AllowOverride all
                 Order allow,deny
@@ -20,10 +20,10 @@
                 Allow from all
         </Directory>
 
-        ErrorLog {{vhost_log}}
+        ErrorLog {{ vhost_log }}
         LogLevel warn
 
-        CustomLog {{vhost_log}} combined
+        CustomLog {{ vhost_log }} combined
 
     Alias /doc/ "/usr/share/doc/"
     <Directory "/usr/share/doc/">
