@@ -2,4 +2,6 @@
 # tasks file for common
 - include_tasks: install_requirements.yaml
 - include_tasks: install_mariadb.yaml
+- mariadb_root_password.yaml
+#- include_tasks: create_mariadb_user.yaml
 - include_tasks: create_database.yaml
