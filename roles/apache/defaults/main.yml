@@ -3,3 +3,4 @@
 vhost_alias: wordpress.example.local
 vhost_root_directory: /var/www
 vhost_log: /var/log/apache2/site.log
+vhost_name_site: site-test

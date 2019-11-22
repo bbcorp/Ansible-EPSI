@@ -11,4 +11,4 @@
 - name: available conf
   command: 
     cmd: "a2ensite {{vhost_name_site}}.conf"
-    create: "/etc/apache2/sites-enabled/{{vhost_name_site}}.conf"
+    creates: "/etc/apache2/sites-enabled/{{vhost_name_site}}.conf"
