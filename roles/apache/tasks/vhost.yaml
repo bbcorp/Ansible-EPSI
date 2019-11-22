@@ -1,7 +1,7 @@
 ---
 - name: add template site
   template:
-    src: "{{vhost_name_site}}.j2"
+    src: site-test.j2
     dest: "/etc/apache2/sites-available/{{vhost_name_site}}.conf"
     owner: root
     group: root
