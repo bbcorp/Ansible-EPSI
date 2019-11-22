@@ -14,3 +14,21 @@
   command: 
     cmd: "a2ensite {{vhost_conf_file}}.conf"
     creates: "/etc/apache2/sites-enabled/{{vhost_conf_file}}.conf"
+
+- name: enabled conf
+  command: 
+    cmd: a2dissite 000-default.conf
+    creates: /etc/apache2/sites-enabled/000-default.conf
+
+- name: enabled conf
+  command: 
+    cmd: a2dissite default-ssl.conf
+    creates: /etc/apache2/sites-enabled/default-ssl.conf
+
+
+
+
+
+
+    
+    

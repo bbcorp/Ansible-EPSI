@@ -34,5 +34,5 @@
 
 - name: rm tmp files
   command: 
-    cmd: rm -rf /tmp/wordpress-5.3-fr_FR.tar.gz
+    cmd: rm /tmp/wordpress-5.3-fr_FR.tar.gz
     creates: /tmp/wordpress-5.3-fr_FR.tar.gz
