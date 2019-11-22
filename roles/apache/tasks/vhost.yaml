@@ -1,8 +1,12 @@
 ---
 - name: add template site
-  templates:
+  template:
     src: site-test.j2
     dest: /etc/apache2/sites-available/site-test.conf
-    backup: yes 
+    owner: root
+    group: root
+    mode: 0644
+    backup: yes
+
 - name: available conf
-  command: a2ensite /etc/apache2/sites-available/site-test.conf
+  command: a2ensite site-test.conf
