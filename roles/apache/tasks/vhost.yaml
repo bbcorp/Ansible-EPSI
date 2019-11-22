@@ -1,4 +1,5 @@
 ---
+#créé le fichier de configuration du site grace a un template. 
 - name: add template site
   template:
     src: site-test.j2
@@ -8,7 +9,8 @@
     mode: 0644
     backup: yes
 
-- name: available conf
+#enbled le site si il ne l'ai pas déja.
+- name: enabled conf
   command: 
     cmd: "a2ensite {{vhost_name_site}}.conf"
     creates: "/etc/apache2/sites-enabled/{{vhost_name_site}}.conf"
