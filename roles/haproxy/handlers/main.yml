@@ -1,2 +1,9 @@
 ---
 # handlers file for haproxy
+- name: reload haproxy
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: haproxy
+    enabled: yes
+    masked: no
