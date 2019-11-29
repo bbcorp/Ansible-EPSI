@@ -7,8 +7,8 @@
 - name: add template config mysql
   template:
     src: wordpress-config-db.j2
-    dest: "{{ vhost_root_directory }}"
-    owner: root
-    group: root
-    mode: 0644
+    dest: "{{ vhost_root_directory }}/wp-config.php"
+    owner: www-data
+    group: www-data
+    mode: 0640
     backup: yes
