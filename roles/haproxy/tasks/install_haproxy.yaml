@@ -2,5 +2,4 @@
 - name: install HAProxy
   apt:
     name: haproxy
-    state: latest
     update_cache: yes
