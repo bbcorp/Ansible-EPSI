@@ -2,3 +2,10 @@
 # defaults file for haproxy
 www01: 127.0.0.1 
 www02: 127.0.0.1
+
+haproxy_listen_ip:
+haproxy_port: 
+haproxy_ip_server_web1:
+haproxy_ip_server_web2: 
+haproxy_stats: 
+haproxy_mode: 
