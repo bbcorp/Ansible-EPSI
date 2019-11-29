@@ -1,0 +1,10 @@
+---
+- name: Default reject policy in
+  ufw:
+    direction: incoming
+    policy: reject
+
+- name: Default allow policy out
+  ufw:
+    direction: outgoing
+    policy: allow
