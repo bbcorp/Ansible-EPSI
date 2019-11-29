@@ -5,4 +5,5 @@
 - include_tasks: configure_mariadb.yaml
 #- include_tasks: mariadb_root_password.yaml
 - include_tasks: create_database.yaml
+- include_tasks: import_dump_file_into_database.yaml
 - include_tasks: create_mariadb_user.yaml
