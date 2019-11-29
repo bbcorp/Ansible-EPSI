@@ -1,0 +1,6 @@
+---
+- name: define hostname
+  template: 
+    src: hostname.j2
+    dest: /etc/hostname
+    mode: 0644
