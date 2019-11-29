@@ -12,5 +12,13 @@
   copy:
     src: "{{ mariadb_dump_import }}"
     dest: /tmp/
-  when: mariadb_dump_import is defined
-  notify: import dump into database
+  when: db_created.changed
+
+- name: import dump into database
+  mysql_db:
+     name: "{{ database_name }}"
+     login_user: "{{ mariadb_login_user }}"
+     login_password: "{{ mariadb_login_password }}"
+     login_unix_socket: "{{ mariadb_socket }}"
+     target: "/tmp/{{ mariadb_dump_import }}"
+  when: db_created.changed
