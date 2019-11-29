@@ -1,0 +1,11 @@
+---
+- name: requirement
+  apt: 
+    pkg:  
+      - php-mysql
+      - php-xml
+      - php-cli
+      - php-gd
+      - php-curl
+      - php-intl
+    update_cache: yes
