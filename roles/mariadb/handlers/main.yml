@@ -7,3 +7,19 @@
     name: mariadb
     enabled: yes
     masked: no
+
+- name: copy dump file to server
+  copy:
+    src: "{{ mariadb_dump_import }}"
+    dest: /tmp/
+  listen: "import dump file"
+
+- name: import dump into database
+  mysql_db:
+     name: "{{ database_name }}"
+     login_user: "{{ mariadb_login_user }}"
+     login_password: "{{ mariadb_login_password }}"
+     login_unix_socket: "{{ mariadb_socket }}"
+     target: "/tmp/{{ mariadb_dump_import }}"
+     state: import
+  listen: "import dump file"

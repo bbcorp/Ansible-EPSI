@@ -6,4 +6,5 @@
      login_password: "{{ mariadb_login_password }}"
      login_unix_socket: "{{ mariadb_socket }}"
      state: present
-  register: db_created
+  notify: import dump file
+  #register: db_created
