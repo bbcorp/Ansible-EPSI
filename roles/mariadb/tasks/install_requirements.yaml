@@ -1,6 +1,6 @@
 ---
-- name: install Python3 PyMysql
+- name: install requirement Python PyMysql
   apt:
-    name: python3-pymysql
+    name: python-pymysql
     state: latest
     update_cache: yes

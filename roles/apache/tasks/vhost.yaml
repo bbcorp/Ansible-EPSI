@@ -10,7 +10,28 @@
     backup: yes
 
 #enbled le site si il ne l'ai pas déja.
-- name: enabled conf
+- name: disable conf
   command: 
     cmd: "a2ensite {{vhost_conf_file}}.conf"
     creates: "/etc/apache2/sites-enabled/{{vhost_conf_file}}.conf"
+
+- name: disable conf
+  command: 
+    cmd: a2dissite 000-default.conf
+    creates: /etc/apache2/sites-enabled/000-default.conf
+
+- name: enable conf
+  command: 
+    cmd: a2dissite default-ssl.conf
+    creates: /etc/apache2/sites-enabled/default-ssl.conf
+
+#- name: stat foo
+#  stat: path=/path/to/foo
+#  register: foo_stat
+#
+#  when: foo_stat.stat.exists
+
+
+
+    
+    

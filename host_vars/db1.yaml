@@ -1,3 +1,5 @@
 ---
-
-database_collation: utf8-general-ci
+#mariadb_root_password: password
+mariadb_socket: /var/run/mysqld/mysqld.sock
+mariadb_login_user: root
+mariadb_login_password: password
