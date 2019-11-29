@@ -3,6 +3,7 @@
 mariadb_socket: /var/run/mysqld/mysqld.sock
 mariadb_login_user: root
 mariadb_login_password: password
+mariadb_dump_import: "wordpress.sql"
 
 # UFW
 web1_ip: "192.168.43.26"

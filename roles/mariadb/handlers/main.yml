@@ -7,3 +7,13 @@
     name: mariadb
     enabled: yes
     masked: no
+
+- name: import dump into database
+  mysql_db:
+     name: "{{ database_name }}"
+     login_user: "{{ mariadb_login_user }}"
+     login_password: "{{ mariadb_login_password }}"
+     login_unix_socket: "{{ mariadb_socket }}"
+     target: "{{ mariadb_dump_import }}"
+     state: import
+  when: mariadb_dump_import is defined

@@ -6,3 +6,4 @@
      login_password: "{{ mariadb_login_password }}"
      login_unix_socket: "{{ mariadb_socket }}"
      state: present
+  notify: import database
