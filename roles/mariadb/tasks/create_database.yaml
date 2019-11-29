@@ -6,4 +6,4 @@
      login_password: "{{ mariadb_login_password }}"
      login_unix_socket: "{{ mariadb_socket }}"
      state: present
-  notify: import dump into database
+  notify: copy dump file to server
