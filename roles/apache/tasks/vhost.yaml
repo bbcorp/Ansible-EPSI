@@ -1,9 +1,9 @@
 ---
-#créé le fichier de configuration du site grace a un template. 
+#créé le fichier de configuration du site grace a un template.
 - name: add template site
   template:
     src: site-test.j2
-    dest: "/etc/apache2/sites-available/{{vhost_conf_file}}.conf"
+    dest: "/etc/apache2/sites-available/{{ vhost_conf_file }}.conf"
     owner: root
     group: root
     mode: 0644
@@ -11,17 +11,17 @@
 
 #enbled le site si il ne l'ai pas déja.
 - name: disable conf
-  command: 
-    cmd: "a2ensite {{vhost_conf_file}}.conf"
-    creates: "/etc/apache2/sites-enabled/{{vhost_conf_file}}.conf"
+  command:
+    cmd: "a2ensite {{ vhost_conf_file }}.conf"
+    creates: "/etc/apache2/sites-enabled/{{ vhost_conf_file }}.conf"
 
 - name: disable conf
-  command: 
+  command:
     cmd: a2dissite 000-default.conf
     creates: /etc/apache2/sites-enabled/000-default.conf
 
 - name: enable conf
-  command: 
+  command:
     cmd: a2dissite default-ssl.conf
     creates: /etc/apache2/sites-enabled/default-ssl.conf
 
@@ -30,8 +30,3 @@
 #  register: foo_stat
 #
 #  when: foo_stat.stat.exists
-
-
-
-    
-    
