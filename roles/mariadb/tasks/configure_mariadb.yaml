@@ -1,0 +1,14 @@
+---
+- name: Mariadb change ip address listen
+  replace:
+    path: /etc/mysql/mariadb.conf.d/50-server.cnf
+    regexp: '^bind-address\s+= 127.0.0.1'
+    replace: 'bind-address            = 0.0.0.0'
+
+- name: restart MariaDB service
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: mariadb
+    enabled: yes
+    masked: no
