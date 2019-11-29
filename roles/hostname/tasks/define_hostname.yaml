@@ -1,8 +1,7 @@
 ---
 - name: define hostname
-  copy:
-    content: "{{ inventory_hostname_short }}\n"
-    dest: /etc/hostname
+  hostname:
+    name: "{{ inventory_hostname_short }}"
 
 - name: hosts
   replace:
