@@ -8,13 +8,14 @@
     group: root
     mode: 0644
     backup: yes
+  validate: "apachectl -t -f %s"
+
 
 #enbled le site si il ne l'ai pas déja.
 - name: enable conf
   command:
     cmd: "a2ensite {{ vhost_conf_file }}.conf"
     creates: "/etc/apache2/sites-enabled/{{ vhost_conf_file }}.conf"
-  validate: "apachectl -t -f %s"
 
 - name: disable conf
   command:
