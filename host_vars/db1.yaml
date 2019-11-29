@@ -11,6 +11,6 @@ mariadb_dump_import: "wordpress.sql"
 ufw_enable: true
 ufw_default_input_policy: REJECT
 ufw_rules: [
-        { from_ip: "{{ hostvars['web1']['ansible_default']['ipv4']['address'] }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ hostvars['web1']['ansible_default']['ipv4']['address'] }}" },
-        { from_ip: "{{ hostvars['web2']['ansible_default']['ipv4']['address'] }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ hostvars['web2']['ansible_default']['ipv4']['address'] }}" }
+        { from_ip: "{{ hostvars['web1']['ansible_default_ipv4']['address'] }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ hostvars['web1']['ansible_default_ipv4']['address'] }}" },
+        { from_ip: "{{ hostvars['web2']['ansible_default_ipv4']['address'] }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ hostvars['web2']['ansible_default_ipv4']['address'] }}" }
 ]
