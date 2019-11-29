@@ -1,12 +1,7 @@
 ---
-- name: Create a database "{{ database_name }}"
-  mysql_db:
-     name: "{{ database_name }}"
-     login_user: "{{ mariadb_login_user }}"
-     login_password: "{{ mariadb_login_password }}"
-     login_unix_socket: "{{ mariadb_socket }}"
-     state: present
-  register: db_created
+- name: debug print
+  debug:
+    var: mariadb_dump_import
 
 - name: copy dump file to server
   copy:
@@ -21,4 +16,5 @@
      login_password: "{{ mariadb_login_password }}"
      login_unix_socket: "{{ mariadb_socket }}"
      target: "/tmp/{{ mariadb_dump_import }}"
+     state: import
   when: db_created.changed

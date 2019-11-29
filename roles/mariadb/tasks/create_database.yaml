@@ -7,10 +7,3 @@
      login_unix_socket: "{{ mariadb_socket }}"
      state: present
   register: db_created
-
-- name: copy dump file to server
-  copy:
-    src: "{{ mariadb_dump_import }}"
-    dest: /tmp/
-  when: mariadb_dump_import is defined
-  notify: import dump into database
