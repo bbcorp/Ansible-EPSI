@@ -3,4 +3,9 @@
   copy:
     content: "{{ inventory_hostname_short }}\n"
     dest: /etc/hostname
- 
+
+- name: hosts
+  replace:
+      path: /etc/hosts
+      regexp: '127.0.1.1'
+      replace: '127.0.1.1 {{ inventory_hostname_short }}\n'
