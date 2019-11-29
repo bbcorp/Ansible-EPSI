@@ -3,5 +3,5 @@
 ufw_enable: true
 ufw_default_input_policy: REJECT
 ufw_rules: [
-        { from_ip: "{{ hostvars['lb1']['ansible_default']['ipv4']['address'] }}", port: 80, proto: tcp, comment: "HTTP: allow from {{ hostvars['lb1']['ansible_default']['ipv4']['address'] }}" }
+        { from_ip: "{{ hostvars['lb1']['ansible_default_ipv4']['address'] }}", port: 80, proto: tcp, comment: "HTTP: allow from {{ hostvars['lb1']['ansible_default_ipv4']['address'] }}" }
 ]
