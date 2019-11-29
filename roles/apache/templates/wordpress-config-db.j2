@@ -30,6 +30,9 @@ define('DB_PASSWORD', '{{ database_user_password }}');
 /** Adresse de l’hébergement MySQL. */
 define('DB_HOST', '{{ database_ip }}');
 
+define('WP_HOME','http://{{ vhost_alias }}');
+define('WP_SITEURL','http://{{ vhost_alias }}');
+
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define('DB_CHARSET', 'utf8');
 
