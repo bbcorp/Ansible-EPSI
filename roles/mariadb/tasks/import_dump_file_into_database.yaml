@@ -16,4 +16,5 @@
      login_password: "{{ mariadb_login_password }}"
      login_unix_socket: "{{ mariadb_socket }}"
      target: /tmp/wordpress.sql #"/tmp/{{ mariadb_dump_import }}"
+     force: yes
   when: db_created.changed
