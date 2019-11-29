@@ -6,11 +6,11 @@ mariadb_login_password: password
 mariadb_dump_import: "wordpress.sql"
 
 # UFW
-web1_ip: "192.168.43.26"
-web2_ip: "192.168.43.77"
+#web1_ip: "192.168.43.26"
+#web2_ip: "192.168.43.77"
 ufw_enable: true
 ufw_default_input_policy: REJECT
 ufw_rules: [
-        { from_ip: "{{ web1_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web1_ip }}" },
-        { from_ip: "{{ web2_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web2_ip }}" }
+        { from_ip: "{{ hostvars['web1']['ansible_default']['ipv4']['address'] }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ hostvars['web1']['ansible_default']['ipv4']['address'] }}" },
+        { from_ip: "{{ hostvars['web2']['ansible_default']['ipv4']['address'] }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ hostvars['web2']['ansible_default']['ipv4']['address'] }}" }
 ]
