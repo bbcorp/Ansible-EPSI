@@ -1,4 +1,8 @@
 ---
+- name: debug print
+  debug:
+    var: mariadb_dump_import
+
 - name: copy dump file to server
   copy:
     src: "{{ mariadb_dump_import }}"
