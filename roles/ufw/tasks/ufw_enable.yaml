@@ -1,4 +1,4 @@
 - name: enable ufw
   ufw:
     state: enabled
-  when: ufw_enable | bool 
+  when: ufw_enable | bool

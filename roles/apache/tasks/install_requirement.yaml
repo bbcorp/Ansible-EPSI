@@ -1,7 +1,7 @@
 ---
 - name: requirement
-  apt: 
-    pkg:  
+  apt:
+    pkg:
       - php-mysql
       - php-xml
       - php-cli
