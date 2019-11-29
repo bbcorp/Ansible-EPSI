@@ -19,6 +19,7 @@
     owner: root
     group: root
     state: link
+    remote_src: yes
   notify: restart apache2
 
 
@@ -27,6 +28,7 @@
     path: /etc/apache2/sites-enabled/000-default.conf
     state: absent
   notify: restart apache2
+  
 - name: disable conf
   file:
     path: /etc/apache2/sites-enabled/default-ssl.conf
