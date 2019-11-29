@@ -4,4 +4,3 @@ vhost_alias: bertrand.local
 vhost_root_directory: /var/www/wordpress
 vhost_log: /var/log/apache2/site.log
 vhost_conf_file: site-test
-database_ip: 192.168.43.91
