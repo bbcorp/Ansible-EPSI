@@ -1,6 +1,6 @@
 ---
 # defaults file for common
-vhost_alias: wordpress.example.local
+vhost_alias: benjamin.local
 vhost_root_directory: /var/www/wordpress
 vhost_log: /var/log/apache2/site.log
 vhost_conf_file: site-test
