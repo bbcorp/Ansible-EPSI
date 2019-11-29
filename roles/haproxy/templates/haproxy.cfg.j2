@@ -23,7 +23,8 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
  
 #Configuration du balancement
-listen cluster_web {{ haproxy_listen_ip }}:{{ haproxy_port }}
+listen cluster_web 
+        bind {{ haproxy_listen_ip }}:{{ haproxy_port }}
         #Web
         mode {{ haproxy_mode }}
  
@@ -36,6 +37,3 @@ listen cluster_web {{ haproxy_listen_ip }}:{{ haproxy_port }}
         #Les serveurs Web
         server web1 {{ haproxy_ip_server_web1 }}:{{ haproxy_port }} check
         server web2 {{ haproxy_ip_server_web2 }}:{{ haproxy_port }} check
- 
-        #Stats
-        stats {{ haproxy_stats }}
