@@ -11,7 +11,7 @@
 - name: copy dump file to server
   copy:
     src: "{{ mariadb_dump_import }}"
-    dst: /tmp/
+    dest: /tmp/
   when: mariadb_dump_import is defined
   notify: import dump into database
 
