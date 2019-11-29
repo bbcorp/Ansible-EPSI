@@ -9,14 +9,10 @@
     backup: yes
 
 - name: decompress
-  command: 
-    cmd: tar -zxf /tmp/wordpress-5.3-fr_FR.tar.gz -C /tmp
-    creates: /var/www/license.txt
+  unarchive:
+    src: /tmp/wordpress-5.3-fr_FR.tar.gz
+    dest: /var/www/
 
-- name: move dans la bonne directory
-  command: 
-    cmd: mv /tmp/wordpress/* /var/www/
-    creates: /var/www/license.txt
 
 - name: add template config mysql
   template:
