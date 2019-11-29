@@ -8,9 +8,11 @@
     group: root
     mode: 0644
     backup: yes
+#  validate: "apachectl -t -f %s"
+
 
 #enbled le site si il ne l'ai pas déja.
-- name: disable conf
+- name: enable conf
   command:
     cmd: "a2ensite {{ vhost_conf_file }}.conf"
     creates: "/etc/apache2/sites-enabled/{{ vhost_conf_file }}.conf"
@@ -20,11 +22,19 @@
     cmd: a2dissite 000-default.conf
     creates: /etc/apache2/sites-enabled/000-default.conf
 
-- name: enable conf
+
+- name: disable conf
   command:
     cmd: a2dissite default-ssl.conf
     creates: /etc/apache2/sites-enabled/default-ssl.conf
 
+- name: restart
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: apache2
+    enabled: yes
+    masked: no
 #- name: stat foo
 #  stat: path=/path/to/foo
 #  register: foo_stat
