@@ -2,9 +2,9 @@
 # defaults file for haproxy
 haproxy1: 192.168.136.131 
 haproxy2: 127.0.0.1
-haproxy_ip_server_web1:
-haproxy_ip_server_web2:
+haproxy_ip_server_web1: 127.0.0.1
+haproxy_ip_server_web2: 127.0.0.1
 haproxy_port: 80
 haproxy_stats: disable
-haproxy_listen_ip: 
+haproxy_listen_ip: 192.168.136.131
 haproxy_mode: http
