@@ -8,4 +8,4 @@
   replace:
       path: /etc/hosts
       regexp: '^127.0.1.1\s+(.+)$'
-      replace: '127.0.1.1       {{ inventory_hostname_short }}'
+      replace: '127.0.1.1\s+{{ inventory_hostname_short }}'
