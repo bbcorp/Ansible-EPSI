@@ -2,7 +2,7 @@
 - name: decompress
   unarchive:
     src: wordpress-5.3-fr_FR.tar.gz
-    dest: "{{ vhost_root_directory }}"
+    dest: /var/www
 
 - name: add template config mysql
   template:
