@@ -1,14 +1,19 @@
 ---
-- name: Add rules allow from anywhere
+- name: Add rules default (prevent blocking SSH)
   ufw:
-   rule: allow
-   port: "{{ item.port }}"
-   proto: "{{ item.proto }}"
-   comment: "{{ item.comment }}"
-  loop:
-    - { port: "22", proto: "tcp", comment: "SSH: from anywhere" }
-    - { port: "80", proto: "tcp", comment: "HTTP: from anywhere" }
-    - { port: "443", proto: "tcp", comment: "HTTPS: from anywhere" }
-    - { port: "25", proto: "tcp", comment: "Exim: SMTP from anywhere" }
-    - { port: "465", proto: "tcp", comment: "Exim: SMTPS from anywhere" }
-    - { port: "587", proto: "tcp", comment: "Exim: SMTP STARTTLS from anywhere" }
+    rule: allow
+    port: "22"
+    proto: tcp
+    comment: "SSH: from anywhere"
+
+- name: Add custom rules
+  ufw:
+   rule: "{{ item.rule if item.rule is defined else 'allow' }}"
+   port: "{{ item.port | default(omit) }}"
+   proto: "{{ item.proto | default(omit) }}"
+   comment: "{{ item.comment | default(omit) }}"
+   from_ip: "{{ item.from_ip | default(omit) }}"
+   from_port: "{{ item.from_port | default(omit) }}"
+   to_ip: "{{ item.to_ip | default(omit) }}"
+   to_port: "{{ item.to_port | default(omit) }}"
+  loop: "{{ ufw_rules }}"

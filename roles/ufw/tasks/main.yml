@@ -1,6 +1,6 @@
 ---
 # tasks file for env
 - include_tasks: ufw_check_install.yaml
-- include_tasks: ufw_default_policy.yaml
+- include_tasks: ufw_default_config_file.yaml
 - include_tasks: ufw_rules.yaml
 - include_tasks: ufw_enable.yaml

@@ -3,3 +3,13 @@
 mariadb_socket: /var/run/mysqld/mysqld.sock
 mariadb_login_user: root
 mariadb_login_password: password
+
+# UFW
+web1_ip: "192.168.43.26"
+web2_ip: "192.168.43.77"
+ufw_enable: true
+ufw_default_input_policy: REJECT
+ufw_rules: [
+        { from_ip: "{{ web1_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web1_ip }}" },
+        { from_ip: "{{ web2_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web2_ip }}" }
+]

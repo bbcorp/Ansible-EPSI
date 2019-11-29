@@ -1,0 +1,8 @@
+---
+# UFW
+ufw_enable: true
+ufw_default_input_policy: REJECT
+lb1_ip: "192.168.43.204"
+ufw_rules: [
+        { from_ip: "{{ lb1_ip }}", port: 80, proto: tcp, comment: "HTTP: allow from { lb1_ip }}" }
+]
