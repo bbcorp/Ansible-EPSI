@@ -8,10 +8,14 @@
     enabled: yes
     masked: no
 
-- name: import dump into database
+- name: copy dump file to server
   copy:
     src: "{{ mariadb_dump_import }}"
     dst: /tmp/
+  when: mariadb_dump_import is defined
+  notify: import dump into database
+
+- name: import dump into database
   mysql_db:
      name: "{{ database_name }}"
      login_user: "{{ mariadb_login_user }}"
@@ -19,4 +23,3 @@
      login_unix_socket: "{{ mariadb_socket }}"
      target: /tmp/"{{ mariadb_dump_import }}"
      state: import
-  when: mariadb_dump_import is defined
