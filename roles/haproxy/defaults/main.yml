@@ -5,5 +5,4 @@ haproxy2: 127.0.0.1
 haproxy_ip_server_web1: 192.168.43.26
 haproxy_ip_server_web2: 192.168.43.77
 haproxy_port: 80
-haproxy_listen_ip: 192.168.43.204
 haproxy_mode: http
