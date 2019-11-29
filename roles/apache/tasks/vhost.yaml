@@ -14,7 +14,7 @@
 #enbled le site si il ne l'ai pas déja.
 - name: Create a symbolic link
   file:
-    src: "/etc/apache/sites-available/{{ vhost_conf_file }}.conf"
+    src: "/etc/apache2/sites-available/{{ vhost_conf_file }}.conf"
     dest: "/etc/apache2/sites-enabled/{{ vhost_conf_file }}.conf"
     owner: root
     group: root
@@ -28,7 +28,7 @@
     path: /etc/apache2/sites-enabled/000-default.conf
     state: absent
   notify: restart apache2
-  
+
 - name: disable conf
   file:
     path: /etc/apache2/sites-enabled/default-ssl.conf
