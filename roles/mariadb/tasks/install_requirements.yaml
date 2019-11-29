@@ -2,5 +2,4 @@
 - name: install requirement Python PyMysql
   apt:
     name: python-pymysql
-    state: latest
     update_cache: yes

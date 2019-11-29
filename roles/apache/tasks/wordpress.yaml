@@ -9,12 +9,12 @@
     backup: yes
 
 - name: decompress
-  command: 
+  command:
     cmd: tar -zxf /tmp/wordpress-5.3-fr_FR.tar.gz -C /tmp
     creates: /var/www/license.txt
 
 - name: move dans la bonne directory
-  command: 
+  command:
     cmd: mv /tmp/wordpress/* /var/www/
     creates: /var/www/license.txt
 
