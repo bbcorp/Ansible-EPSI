@@ -1,7 +1,7 @@
 ---
 - name: copy wordpress tar
   copy:
-    src: /../../../wordpress/wordpress-5.3-fr_FR.tar.gz
+    src: ../../../wordpress/wordpress-5.3-fr_FR.tar.gz
     dest: /tmp
     owner: root
     group: root
