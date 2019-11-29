@@ -1,6 +1,6 @@
 ---
 - name: define hostname
-  template: 
-    src: hostname.j2
-    dest: /etc/hostname
-    mode: 0644
+  replace:
+    path: /etc/hostname
+    regexp: '^'
+    replace: "{{ inventory_hostname_short }}"
