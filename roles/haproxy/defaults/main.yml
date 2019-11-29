@@ -1,2 +1,4 @@
 ---
 # defaults file for haproxy
+www01: 127.0.0.1 
+www02: 127.0.0.1
