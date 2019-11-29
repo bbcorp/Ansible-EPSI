@@ -1,34 +1,14 @@
 ---
-- name: copy wordpress tar
-  copy:
-    src: ../../../wordpress/wordpress-5.3-fr_FR.tar.gz
-    dest: /tmp
-    owner: root
-    group: root
-    mode: '0644'
-    backup: yes
-
 - name: decompress
   unarchive:
-    src: /tmp/wordpress-5.3-fr_FR.tar.gz
-    dest: /var/www/
-
+    src: wordpress-5.3-fr_FR.tar.gz
+    dest: "{{ vhost_root_directory }}"
 
 - name: add template config mysql
   template:
     src: wordpress-config-db.j2
-    dest: /var/www/
+    dest: "{{ vhost_root_directory }}"
     owner: root
     group: root
     mode: 0644
     backup: yes
-
-- name: rm tmp files
-  file:
-    path: /tmp/wordpress
-    state: absent
-
-- name: rm tmp files
-  file:
-    path: /tmp/wordpress-5.3-fr_FR.tar.gz
-    state: absent
