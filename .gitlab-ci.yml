@@ -7,4 +7,4 @@ yaml_linting:
   stage: lint
   image: alpine:ansible-lint
   script:
-    - find . -type f -name "*.yaml"| xargs ansible-lint
+    - find . -type f -name "*.yml" -exec ansible-lint '{}' \;

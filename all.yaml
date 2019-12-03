@@ -1,6 +1,0 @@
----
-- import_playbook: hostname.yaml
-- import_playbook: ufw.yaml
-- import_playbook: mariadb.yaml
-- import_playbook: apache.yaml
-- import_playbook: haproxy.yaml
