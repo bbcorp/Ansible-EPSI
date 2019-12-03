@@ -7,4 +7,3 @@
      login_unix_socket: "{{ mariadb_socket }}"
      state: present
   notify: import dump file
-  #register: db_created
