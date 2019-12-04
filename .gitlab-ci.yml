@@ -7,4 +7,4 @@ yaml_linting:
   stage: lint
   image: alpine:ansible-lint
   script:
-    - find roles -maxdepth 1 -type d -exec ansible-lint '{}' \;
+    - find roles -maxdepth 1 -type d | xargs ansible-lint
