@@ -7,4 +7,10 @@ yaml_linting:
   stage: lint
   image: alpine:ansible-lint
   script:
-    - find . -type f -name "*.yaml"| xargs ansible-lint
+    - find roles -maxdepth 1 -type d | xargs ansible-lint
+  only:
+    changes:
+      - "*.yml"
+      - host_vars/*.yml
+      - group_vars/*.yml
+      - roles/**/**/*.yml
