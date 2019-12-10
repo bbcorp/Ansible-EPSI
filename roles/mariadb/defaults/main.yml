@@ -4,3 +4,6 @@ mariadb_socket: /var/run/mysqld/mysqld.sock
 mariadb_login_user: root
 mariadb_login_password: ChangeMe
 mariadb_dump_import: "wordpress.sql"
+database_name: wordpress
+database_username: wpadmin
+database_user_password: ChangeMe
