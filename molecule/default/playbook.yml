@@ -1,6 +1,13 @@
 ---
 - name: Converge
   hosts: all
+
+  pre_tasks:
+    - name: Update apt cache
+      apt: update_cache=yes cache_valid_time=600
+    - name: Install dbus
+      apt: name=dbus
+    
   roles:
     - role: ufw
     - role: mariadb
