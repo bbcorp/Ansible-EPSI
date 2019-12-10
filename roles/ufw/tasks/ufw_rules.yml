@@ -1,10 +1,10 @@
 ---
-- name: Add rules default (prevent blocking SSH)
+- name: Add rules default (prevent self blocking SSH)
   ufw:
     rule: allow
     port: "22"
     proto: tcp
-    comment: "SSH: from anywhere"
+    comment: "SSH: from anywhere; prevent self blocking"
 
 - name: Add custom rules
   ufw:
@@ -17,3 +17,4 @@
     to_ip: "{{ item.to_ip | default(omit) }}"
     to_port: "{{ item.to_port | default(omit) }}"
   loop: "{{ ufw_rules }}"
+  when: ufw_rules is defined
