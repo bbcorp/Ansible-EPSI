@@ -2,4 +2,4 @@
 - name: Ensure ufw is present on the system
   apt:
     name: ufw
-    update_cache: yes
+    update_cache: true

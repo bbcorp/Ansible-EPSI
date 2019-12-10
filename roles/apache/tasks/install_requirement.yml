@@ -9,4 +9,4 @@
       - php-curl
       - php-intl
       - libapache2-mod-php
-    update_cache: yes
+    update_cache: true

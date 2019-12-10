@@ -3,4 +3,4 @@
   template:
     src: ufw.j2
     dest: /etc/default/ufw
-    force: yes
+    force: true

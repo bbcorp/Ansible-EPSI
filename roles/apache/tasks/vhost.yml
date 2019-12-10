@@ -1,5 +1,5 @@
 ---
-#créé le fichier de configuration du site grace a un template.
+# créé le fichier de configuration du site grace a un template.
 - name: add template site
   template:
     src: site-test.j2
@@ -7,11 +7,11 @@
     owner: root
     group: root
     mode: 0644
-    backup: yes
+    backup: true
 #  validate: "apachectl -t -f %s"
 
 
-#enbled le site si il ne l'ai pas déja.
+# enable le site si il ne l'est pas déja.
 - name: Create a symbolic link
   file:
     src: "/etc/apache2/sites-available/{{ vhost_conf_file }}.conf"
@@ -19,9 +19,8 @@
     owner: root
     group: root
     state: link
-    remote_src: yes
+    remote_src: true
   notify: restart apache2
-
 
 - name: disable conf
   file:

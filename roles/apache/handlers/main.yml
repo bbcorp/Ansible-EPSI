@@ -3,7 +3,7 @@
 - name: restart apache2
   systemd:
     state: restarted
-    daemon_reload: yes
+    daemon_reload: true
     name: apache2
-    enabled: yes
-    masked: no
+    enabled: true
+    masked: false

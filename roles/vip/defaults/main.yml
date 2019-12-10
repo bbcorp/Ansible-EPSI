@@ -1,4 +1,3 @@
 ---
 # defaults file for common
-
 logfile: /var/log/heartbeat.log

@@ -2,4 +2,4 @@
 - name: install heartbeat
   apt:
     name: heartbeat
-    update_cache: yes
+    update_cache: true

@@ -3,10 +3,10 @@
 - name: restart MariaDB service
   systemd:
     state: restarted
-    daemon_reload: yes
+    daemon_reload: true
     name: mariadb
-    enabled: yes
-    masked: no
+    enabled: true
+    masked: false
 
 - name: copy dump file to server
   copy:
@@ -16,10 +16,10 @@
 
 - name: import dump into database
   mysql_db:
-     name: "{{ database_name }}"
-     login_user: "{{ mariadb_login_user }}"
-     login_password: "{{ mariadb_login_password }}"
-     login_unix_socket: "{{ mariadb_socket }}"
-     target: "/tmp/{{ mariadb_dump_import }}"
-     state: import
+    name: "{{ database_name }}"
+    login_user: "{{ mariadb_login_user }}"
+    login_password: "{{ mariadb_login_password }}"
+    login_unix_socket: "{{ mariadb_socket }}"
+    target: "/tmp/{{ mariadb_dump_import }}"
+    state: import
   listen: "import dump file"
