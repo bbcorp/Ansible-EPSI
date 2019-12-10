@@ -4,4 +4,4 @@ vhost_alias: wordpress.example.local
 vhost_root_directory: /var/www/wordpress
 vhost_log: /var/log/apache2/site.log
 vhost_conf_file: wordpress
-database_ip: 192.168.241.135
+database_ip: 192.168.43.91
