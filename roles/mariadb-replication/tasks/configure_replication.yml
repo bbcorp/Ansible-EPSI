@@ -7,5 +7,5 @@
       log-error=/var/log/mysql/mysql-error.log
       server-id=1
       binlog-do-db=db1
-    insertafter: "[mysqld]"
+    insertafter: \[mysqld\]
   notify: restart MariaDB service
