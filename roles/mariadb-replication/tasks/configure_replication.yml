@@ -1,0 +1,11 @@
+---
+- name: Mariadb configure replication master
+  blockinfile:
+    path: /etc/mysql/mariadb.conf.d/50-server.cnf
+    block: |
+      log-bin=/var/log/mysql/mysql-bin.log
+      log-error=/var/log/mysql/mysql-error.log
+      server-id=1
+      binlog-do-db=db1
+    insertafter: "[mysqld]"
+  notify: restart MariaDB service
