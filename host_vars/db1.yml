@@ -6,8 +6,8 @@ mariadb_login_password: ChangeMe
 mariadb_dump_import: "wordpress.sql"
 
 # UFW
-web1_ip: hostvars['web1']['ansible_default_ipv4']['address']
-web2_ip: hostvars['web2']['ansible_default_ipv4']['address']
+web1_ip: "{{ hostvars['web1']['ansible_default_ipv4']['address'] }}"
+web2_ip: "{{ hostvars['web2']['ansible_default_ipv4']['address'] }}"
 ufw_enable: true
 ufw_default_input_policy: REJECT
 ufw_rules: [
