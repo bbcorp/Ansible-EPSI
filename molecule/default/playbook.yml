@@ -17,3 +17,6 @@
     - role: hostname
     - role: ufw
     - role: mariadb
+    - role: apache
+    - role: haproxy
+    - role: vip
