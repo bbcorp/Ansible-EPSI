@@ -9,13 +9,13 @@ lint:
     config-file: molecule/default/yaml-lint.yml
 platforms:
   - name: instance
-    image: debian:10
-    # image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian10}-ansible:latest"
-    # command: ${MOLECULE_DOCKER_COMMAND:-""}
-    # volumes:
-    #  - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    # privileged: true
-    # pre_build_image: true
+    # image: debian:10
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian10}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
 provisioner:
   name: ansible
   env:
