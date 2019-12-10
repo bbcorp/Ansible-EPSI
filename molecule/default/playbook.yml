@@ -7,7 +7,10 @@
       apt: update_cache=yes cache_valid_time=600
     - name: Install dbus
       apt: name=dbus
-    
+    - name: Start dbus
+      systemd: name=dbus state=started daemon_reload=true enabled=true masked=false
+
   roles:
+    - role: hostname
     - role: ufw
     - role: mariadb
