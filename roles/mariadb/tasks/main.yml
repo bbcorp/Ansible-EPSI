@@ -3,6 +3,7 @@
 - include_tasks: install_requirements.yml
 - include_tasks: install_mariadb.yml
 - include_tasks: configure_mariadb.yml
+- include_tasks: start_mariadb.yml
 # - include_tasks: mariadb_root_password.yml
 - include_tasks: create_database.yml
 - include_tasks: create_mariadb_user.yml

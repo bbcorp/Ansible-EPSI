@@ -1,6 +1,6 @@
 ---
 # UFW
-lb1_ip: hostvars['lb1']['ansible_default_ipv4']['address']
+lb1_ip: "{{ hostvars['lb1']['ansible_default_ipv4']['address'] }}"
 ufw_enable: true
 ufw_default_input_policy: REJECT
 ufw_rules: [
