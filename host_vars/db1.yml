@@ -2,7 +2,7 @@
 # mariadb_root_password: password
 mariadb_socket: /var/run/mysqld/mysqld.sock
 mariadb_login_user: root
-mariadb_login_password: password
+mariadb_login_password: ChangeMe
 mariadb_dump_import: "wordpress.sql"
 
 # UFW
