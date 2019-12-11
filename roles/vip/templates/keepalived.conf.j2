@@ -3,7 +3,7 @@ vrrp_instance VIP_1 {
   priority {{ vip_priority}}
   nopreempt
 
-  interface eth1
+  interface ens33
   virtual_router_id 255
   advert_int 5
   virtual_ipaddress {
