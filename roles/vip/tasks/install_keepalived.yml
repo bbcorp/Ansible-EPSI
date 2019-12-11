@@ -1,7 +1,7 @@
 ---
 - name: install keapalived
   apt:
-    name: keapalived
+    name: keepalived
     update_cache: true
 
 - name: deploying keepalived config
