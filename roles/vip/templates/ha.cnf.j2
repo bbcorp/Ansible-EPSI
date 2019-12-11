@@ -1,17 +1,13 @@
-# Indication du fichier de log
-logfile {{ logfile }}
-# Les logs heartbeat seront gérés par syslog, dans la catégorie daemon
-logfacility daemon
-# On liste tous les membres de notre cluster heartbeat (par les noms de préférences)
-node lb11
-node lb2
-# On défini la périodicité de controle des noeuds entre eux (en seconde)
-keepalive 1
-# Au bout de combien de seconde un noeud sera considéré comme "mort"
-deadtime 10
-# Quelle carte résau utiliser pour les broadcasts Heartbeat (eth1 dans mon cas)
-bcast {{ ansible_default_ipv4.interface }}
-# Adresse du routeur pour vérifier la connexion au net
-ping 192.168.1.1
-# Rebascule-t-on automatiquement sur le primaire si celui-ci redevient vivant
-auto_failback yes
+vrrp_instance VIP_1 {
+  state BACKUP
+  priority {{ vip_priority}}
+  nopreempt
+
+  interface eth1
+  virtual_router_id 255
+  advert_int 5
+  virtual_ipaddress {
+        192.168.1.150/24 brd 192.168.1.255 dev ens33 scope global
+  }
+}
+

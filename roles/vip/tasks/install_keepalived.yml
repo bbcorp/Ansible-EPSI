@@ -1,0 +1,5 @@
+---
+- name: install keapalived
+  apt:
+    name: keapalived
+    update_cache: true

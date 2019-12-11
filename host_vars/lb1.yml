@@ -5,3 +5,4 @@ ufw_default_input_policy: REJECT
 ufw_rules: [
         { port: 80, proto: tcp, comment: "HTTP: allow from any" }
 ]
+vip_priority: 150
