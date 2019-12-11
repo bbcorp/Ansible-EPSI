@@ -1,0 +1,13 @@
+vrrp_instance VIP_1 {
+  state BACKUP
+  priority {{ vip_priority}}
+  nopreempt
+
+  interface ens33
+  virtual_router_id 255
+  advert_int 5
+  virtual_ipaddress {
+        192.168.1.150/24 brd 192.168.1.255 dev ens33 scope global
+  }
+}
+

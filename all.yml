@@ -3,5 +3,6 @@
 - import_playbook: ufw.yml
 - import_playbook: mariadb.yml
 - import_playbook: apache.yml
+- import_playbook: wordpress.yml
 - import_playbook: haproxy.yml
 - import_playbook: heartbeat.yml

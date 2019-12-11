@@ -2,4 +2,8 @@
 database_name: wordpress
 database_username: wpadmin
 database_user_password: testtest
-database_ip: 192.168.43.91
+database_ip: 192.168.1.32
+vhost_alias: wordpress.example.local
+vhost_root_directory: /var/www/wordpress
+vhost_log: /var/log/apache2/site.log
+vhost_conf_file: wordpress
