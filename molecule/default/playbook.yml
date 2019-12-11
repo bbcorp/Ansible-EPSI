@@ -2,6 +2,9 @@
 - name: Converge
   hosts: all
 
+  vars:
+    haproxy_port: 8080
+
   pre_tasks:
     - name: Update apt cache
       apt: update_cache=yes cache_valid_time=600
@@ -14,3 +17,6 @@
     - role: hostname
     - role: ufw
     - role: mariadb
+    - role: apache
+    - role: haproxy
+    - role: vip

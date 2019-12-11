@@ -4,7 +4,7 @@
     src: wordpress-5.3-fr_FR.tar.gz
     dest: /var/www
 
-- name: add template config mysql
+- name: add template wp config
   template:
     src: wordpress-config-db.j2
     dest: "{{ vhost_root_directory }}/wp-config.php"
