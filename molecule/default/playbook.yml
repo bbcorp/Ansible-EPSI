@@ -4,6 +4,9 @@
 
   vars:
     haproxy_port: 8080
+    mariadb_replication_user: slave
+    mariadb_replication_password: h!KDdGrq!Z2cYf!d#n
+    mariadb_replication_role: master
 
   pre_tasks:
     - name: Update apt cache
@@ -15,8 +18,9 @@
 
   roles:
     - role: hostname
-    - role: ufw
+    # - role: ufw
     - role: mariadb
-    - role: apache
-    - role: haproxy
-    - role: vip
+    - role: mariadb-replication
+    # - role: apache
+    # - role: haproxy
+    # - role: vip

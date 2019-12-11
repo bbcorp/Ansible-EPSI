@@ -1,0 +1,11 @@
+---
+- name: ensure mariadb is already installed
+  stat:
+    path: /var/run/mysqld/mysqld.sock
+  register: mariadb_mysql_sock
+
+- name: install mariadb server
+  apt:
+    name: mariadb-server
+    update_cache: true
+  when: not mariadb_mysql_sock.stat.exists
