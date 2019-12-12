@@ -7,6 +7,12 @@
     mariadb_replication_user: slave
     mariadb_replication_password: h!KDdGrq!Z2cYf!d#n
     mariadb_replication_role: master
+    database_ip: 0.0.0.0
+    ufw_enable: false   # FIXME bug with docker "ERROR: problem running sysctl"
+    vip_priority: 150
+    vip_ip: 192.168.1.150
+    vip_mask: 24
+    vip_broadcast: 192.168.1.255
 
   pre_tasks:
     - name: Update apt cache
@@ -18,9 +24,10 @@
 
   roles:
     - role: hostname
-    # - role: ufw
+    - role: ufw
     - role: mariadb
     - role: mariadb-replication
-    # - role: apache
-    # - role: haproxy
-    # - role: vip
+    - role: apache
+    - role: wordpress
+    - role: haproxy
+    - role: vip

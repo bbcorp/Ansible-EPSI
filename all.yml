@@ -6,4 +6,3 @@
 - import_playbook: wordpress.yml
 - import_playbook: keepalived.yml
 - import_playbook: haproxy.yml
-
