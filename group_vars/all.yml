@@ -7,3 +7,6 @@ vhost_alias: wordpress.example.local
 vhost_root_directory: /var/www/wordpress
 vhost_log: /var/log/apache2/site.log
 vhost_conf_file: wordpress
+vip_ip: 192.168.1.150
+vip_mask: 24
+vip_broadcast: 192.168.1.255

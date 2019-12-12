@@ -25,7 +25,7 @@ defaults
  
 #Configuration du balancement
 listen cluster_web 
-        bind {{ ansible_default_ipv4.address }}:{{ haproxy_port }}
+        bind {{ vip_ip }}:{{ haproxy_port }}
         #Web
         mode {{ haproxy_mode }}
  
