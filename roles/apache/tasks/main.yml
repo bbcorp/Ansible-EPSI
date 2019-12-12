@@ -4,4 +4,3 @@
 - include_tasks: install_requirement.yml
 - include_tasks: install_apache.yml
 - include_tasks: vhost.yml
-
