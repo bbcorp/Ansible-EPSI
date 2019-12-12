@@ -1,11 +1,79 @@
 ---
 - name: Mariadb configure replication master
-  blockinfile:
-    path: /etc/mysql/mariadb.conf.d/50-server.cnf
-    block: |
-      log-bin=/var/log/mysql/mysql-bin.log
-      log-error=/var/log/mysql/mysql-error.log
-      server-id=1
-      binlog-do-db=db1
-    insertafter: \[mysqld\]
+  ini_file:
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
+    section: mysqld
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  loop:
+    - { option: "log-bin", value: "/var/log/mysql/mysql-bin.log"}
+    - { option: "log-error", value: "/var/log/mysql/mysql-error.log"}
+    - { option: "server-id", value: "1"}
+    - { option: "binlog-do-db", value: "db1"}
   notify: restart MariaDB service
+
+- name: Ensure log bin and log error exists and rights ok
+  file:
+    path: "{{ item }}"
+    state: touch
+    access_time: preserve
+    modification_time: preserve
+    owner: mysql
+    group: mysql
+    mode: '0640'
+  loop:
+    - /var/log/mysql/mysql-bin.log
+    - /var/log/mysql/mysql-error.log
+  notify: restart MariaDB service
+
+- name: Create slave user with replication privileges
+  mysql_user:
+    name: "{{ mariadb_replication_user }}"
+    password: "{{ mariadb_replication_password }}"
+    priv: '*.*:REPLICATION SLAVE,REPLICATION CLIENT'
+    host: "{{ mariadb_replication_host | default('%') }}"
+    login_user: "{{ mariadb_login_user }}"
+    login_password: "{{ mariadb_login_password }}"
+    login_unix_socket: "{{ mariadb_socket }}"
+    state: present
+  when: mariadb_replication_role == 'master'
+
+- name: Check slave replication status.
+  mysql_replication:
+    mode: getslave
+    login_user: "{{ mariadb_replication_user }}"
+    login_password: "{{ mariadb_replication_password }}"
+  ignore_errors: true
+  register: slave
+  when:
+    - mariadb_replication_role == 'slave'
+    - mariadb_replication_master | length > 0
+
+- name: Check master replication status.
+  mysql_replication: mode=getmaster
+  delegate_to: "{{ mariadb_replication_master }}"
+  register: master
+  when:
+    - (slave.Is_Slave is defined and not slave.Is_Slave) or (slave.Is_Slave is not defined and slave is failed)
+    - mariadb_replication_role == 'slave'
+    - mariadb_replication_master | length > 0
+
+- name: Configure replication on slave
+  mysql_replication:
+    mode: changemaster
+    master_host: "{{ mariadb_replication_master }}"
+    master_user: "{{ mariadb_replication_user }}"
+    master_password: "{{ mariadb_replication_password }}"
+  ignore_errors: true
+  when:
+    - (slave.Is_Slave is defined and not slave.Is_Slave) or (slave.Is_Slave is not defined and slave is failed)
+    - mariadb_replication_role == 'slave'
+    - mariadb_replication_user is defined
+    - mariadb_replication_master | length > 0
+
+- name: Start replication.
+  mysql_replication: mode=startslave
+  when:
+    - (slave.Is_Slave is defined and not slave.Is_Slave) or (slave.Is_Slave is not defined and slave is failed)
+    - mariadb_replication_role == 'slave'
+    - mariadb_replication_master | length > 0
