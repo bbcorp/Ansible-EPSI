@@ -25,7 +25,7 @@ defaults
  
 #Configuration du balancement
 listen cluster_web 
-        bind {{ vip_ip }}:{{ haproxy_port }}
+        bind 0.0.0.0:{{ haproxy_port }}
         #Web
         mode {{ haproxy_mode }}
  
