@@ -9,8 +9,9 @@
 - name: no masked
   systemd: 
     name: nfs-common
-    enable: yes
+    enabled: yes
     masked: no
+
 
 - name: deploying nfs config
   template:
