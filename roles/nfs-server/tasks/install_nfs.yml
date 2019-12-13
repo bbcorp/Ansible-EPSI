@@ -1,7 +1,7 @@
 ---
 - name: install nfs
   apt:
-    name: 
+    name:
       - nfs-kernel-server
       - nfs-common
     update_cache: true
@@ -22,8 +22,7 @@
   notify:
     - reload rpcbind
     - reload nfs-kernel-server
-   
-  
+
 - name: /etc/default/nfs-common
   lineinfile:
     path: /etc/default/nfs-common

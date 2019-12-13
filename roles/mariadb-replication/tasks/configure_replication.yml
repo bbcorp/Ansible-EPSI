@@ -1,4 +1,4 @@
-# ---
+---
 - name: Mariadb configure replication master cnf
   ini_file:
     dest: /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -14,7 +14,6 @@
     - mariadb_replication_role == 'master'
     - mariadb_replication_master | length > 0
   notify: restart MariaDB service
-
 # - name: Mariadb configure replication slave cnf
 #   ini_file:
 #     dest: /etc/mysql/mariadb.conf.d/50-server.cnf
@@ -32,8 +31,6 @@
 #     - mariadb_replication_master | length > 0
 #     - mariadb_replication_user is defined
 #   notify: restart MariaDB service
-
-
 
 - name: Ensure log bin and log error exists and rights ok
   file:
@@ -88,7 +85,6 @@
     # login_user: root
     # login_password: "{{ mariadb_root_password }}"
     config_file: /etc/mysql/debian.cnf
-    # login_unix_socket: "{{ mariadb_socket }}"
   delegate_to: "{{ mariadb_replication_master }}"
   register: master
   when:
