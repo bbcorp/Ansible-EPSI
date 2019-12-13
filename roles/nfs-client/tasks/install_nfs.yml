@@ -28,5 +28,4 @@
     src: "{{ nfs1_ip}}:{{ nfs_dossier }}" 
     fstype: nfs
     opts: rw,sync,nfsvers=4
-    state: mounted
-  debugger: on_failed
+    state: present
