@@ -9,7 +9,7 @@
     - { option: "log-bin", value: "/var/log/mysql/mysql-bin.log"}
     - { option: "log-error", value: "/var/log/mysql/mysql-error.log"}
     - { option: "server-id", value: "1"}
-    - { option: "binlog-do-db", value: "wordpress"}
+    - { option: "binlog-do-db", value: "db1"}
   when:
     - mariadb_replication_role == 'master'
     - mariadb_replication_master | length > 0
@@ -71,6 +71,13 @@
     # login_unix_socket: "{{ mariadb_socket }}"
     state: present
   when: mariadb_replication_role == 'master'
+
+- name: Collect all info except settings and users by root
+  mysql_info:
+    # login_user: root
+    # login_password: ''
+    filter: "!settings,!users"
+    config_file: /etc/mysql/debian.cnf
 
 - name: Check slave replication status.
   mysql_replication:
