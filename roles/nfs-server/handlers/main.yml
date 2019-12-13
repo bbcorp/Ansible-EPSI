@@ -10,7 +10,7 @@
 
 - name: reload rpcbind
   systemd:
-    state: started
+    state: restarted
     daemon_reload: true
     name: rpcbind
     enabled: true
@@ -18,7 +18,7 @@
 
 - name: reload nfs-kernel-server
   systemd:
-    state: started
+    state: restarted
     daemon_reload: true
     name: nfs-kernel-server
     enabled: true
