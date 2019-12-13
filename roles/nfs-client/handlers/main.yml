@@ -2,8 +2,9 @@
 # handlers file for common
 - name: reload nfs
   systemd:
-    state: restarted
+    state: started
     daemon_reload: true
-    name: nfs
+    name: nfs-common
     enabled: true
     masked: false
+
