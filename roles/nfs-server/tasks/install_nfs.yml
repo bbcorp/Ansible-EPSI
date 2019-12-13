@@ -11,7 +11,7 @@
     name: nfs-common
     enabled: yes
     masked: no
-
+    daemon_reload: yes
 
 - name: deploying nfs config
   template:
