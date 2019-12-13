@@ -28,3 +28,6 @@
     path: /etc/default/nfs-common
     regexp: '^NEED_IDMAPD='
     line: 'NEED_IDMAPD=yes'
+  notify:
+    - reload rpcbind
+    - reload nfs-kernel-server
