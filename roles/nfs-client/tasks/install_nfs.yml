@@ -19,7 +19,9 @@
     path: /etc/default/nfs-common
     line: 'NEED_IDMAPD=yes'
 
-
-
-
-
+- name: Mount nfs4
+  mount:
+    path: /var/www
+    src: '{{ nfs_ip }}:/var/www'
+    fstype: nfs4
+    state: present
