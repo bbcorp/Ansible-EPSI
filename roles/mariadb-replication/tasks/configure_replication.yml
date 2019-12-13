@@ -1,4 +1,4 @@
-# ---
+---
 - name: Mariadb configure replication master cnf
   ini_file:
     dest: /etc/mysql/mariadb.conf.d/50-server.cnf

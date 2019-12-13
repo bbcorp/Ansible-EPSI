@@ -1,17 +1,17 @@
 ---
 - name: install nfs
   apt:
-    name: 
+    name:
       - nfs-kernel-server
       - nfs-common
     update_cache: true
 
 - name: no masked
-  systemd: 
+  systemd:
     name: nfs-common
-    enabled: yes
-    masked: no
-    daemon_reload: yes
+    enabled: true
+    masked: false
+    daemon_reload: true
 
 - name: deploying nfs config
   template:
@@ -22,8 +22,7 @@
     - reload nfs-common
     - reload rpcbind
     - reload nfs-kernel-server
-   
-  
+
 - name: /etc/default/nfs-common
   lineinfile:
     path: /etc/default/nfs-common
