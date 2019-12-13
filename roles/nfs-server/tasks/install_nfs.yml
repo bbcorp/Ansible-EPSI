@@ -19,4 +19,5 @@
 - name: /etc/default/nfs-common
   lineinfile:
     path: /etc/default/nfs-common
+    regxp: '^NEED_IDMAPD='
     line: 'NEED_IDMAPD=yes'
