@@ -1,0 +1,25 @@
+---
+- name: install nfs
+  apt:
+    name: nfs-common
+    update_cache: true
+
+
+
+- name: /etc/fstab
+  lineinfile:
+    path: /etc/fstab
+    line: '{{ nfs1_ip }}:{{ nfs_dossier }}  {{ nfs_dossier }}   nfs    soft,timeo=5,intr,rsize=8192,wsize=8192  0  0'
+  notify:
+    - reload nfs
+
+
+- name: /etc/default/nfs-common
+  lineinfile:
+    path: /etc/default/nfs-common
+    line: 'NEED_IDMAPD=yes'
+
+
+
+
+

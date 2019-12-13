@@ -1,0 +1,25 @@
+---
+# handlers file for common
+- name: reload nfs-common
+  systemd:
+    state: restarted
+    daemon_reload: true
+    name: nfs-common
+    enabled: true
+    masked: false
+
+- name: reload rpcbind
+  systemd:
+    state: started
+    daemon_reload: true
+    name: rpcbind
+    enabled: true
+    masked: false
+
+- name: reload nfs-kernel-server
+  systemd:
+    state: started
+    daemon_reload: true
+    name: nfs-kernel-server
+    enabled: true
+    masked: false

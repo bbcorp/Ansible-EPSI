@@ -1,0 +1,22 @@
+---
+- name: install nfs
+  apt:
+    name: 
+      - nfs-kernel-server
+      - nfs-common
+    update_cache: true
+
+- name: deploying nfs config
+  template:
+    src: exports.j2
+    dest: /etc/exports
+    mode: 0644
+  notify:
+    - reload nfs-common
+    - reload rpcbind
+    - reload nfs-kernel-server
+  
+- name: /etc/default/nfscommon
+  lineinfile:
+    path: /etc/default/nfscommon
+    line: 'NEED_IDMAPD=yes'
