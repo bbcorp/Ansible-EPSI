@@ -62,12 +62,9 @@
     state: present
   when: mariadb_replication_role == 'master'
 
-- name: test mariadb
+- name: test mariadb connection
   mysql_info:
     config_file: /etc/mysql/debian.cnf
-  when:
-    - mariadb_replication_role == 'slave'
-    - mariadb_replication_master | length > 0
 
 - name: Check slave replication status.
   mysql_replication:
