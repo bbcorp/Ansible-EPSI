@@ -62,8 +62,11 @@
     state: present
   when: mariadb_replication_role == 'master'
 
-- name: test mariadb connection
+- name: Collect all info except settings and users by root
   mysql_info:
+    login_user: root
+    login_password: ''
+    filter: "!settings,!users"
     config_file: /etc/mysql/debian.cnf
 
 - name: Check slave replication status.
