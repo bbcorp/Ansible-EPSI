@@ -73,7 +73,11 @@
     - mariadb_replication_master | length > 0
 
 - name: Check master replication status.
-  mysql_replication: mode=getmaster
+  mysql_replication:
+    mode: getmaster
+    login_user: "{{ mariadb_login_user }}"
+    login_password: "{{ mariadb_login_password }}"
+    login_unix_socket: "{{ mariadb_socket }}"
   delegate_to: "{{ mariadb_replication_master }}"
   register: master
   when:
