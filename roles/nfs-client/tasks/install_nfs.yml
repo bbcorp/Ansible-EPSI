@@ -19,9 +19,17 @@
     path: /etc/default/nfs-common
     line: 'NEED_IDMAPD=yes'
 
+- name: Create a directory /var/www
+  file:
+    path: /var/www
+    owner: www-data
+    group: www-data
+    state: directory
+    mode: '0755'
+
 - name: Mount nfs4
   mount:
     path: /var/www
-    src: '{{ nfs1_ip }}:/var/www'
+    src: '{{ nfs1_ip }}:{{ nfs_dossier }}'
     fstype: nfs4
     state: present
