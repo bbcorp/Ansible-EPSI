@@ -13,6 +13,7 @@
     vip_ip: 192.168.1.150
     vip_mask: 24
     vip_broadcast: 192.168.1.255
+    mariadb_replication_master: 0.0.0.0
 
   pre_tasks:
     - name: Update apt cache
