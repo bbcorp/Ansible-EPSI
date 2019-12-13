@@ -26,6 +26,6 @@
   mount:
     name: /var/www
     src: "{{ nfs1_ip}}:{{ nfs_dossier }}" 
-    fstype: nfs
-    opts: rw,sync,nfsvers=4
-    state: present
+    fstype: nfs4
+    opts: rw,relatime
+    state: mounted
