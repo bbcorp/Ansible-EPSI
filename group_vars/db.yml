@@ -6,9 +6,6 @@ mariadb_replication_master: "{{ hostvars['db1']['ansible_default_ipv4']['address
 # UFW custom rules
 web1_ip: "{{ hostvars['web1']['ansible_default_ipv4']['address'] }}"
 web2_ip: "{{ hostvars['web2']['ansible_default_ipv4']['address'] }}"
+# UFW
 ufw_enable: true
 ufw_default_input_policy: REJECT
-ufw_rules: [
-        { from_ip: "{{ web1_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web1_ip }}" },
-        { from_ip: "{{ web2_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web2_ip }}" }
-]
