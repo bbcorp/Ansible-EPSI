@@ -29,3 +29,4 @@
     fstype: nfs
     opts: rw,sync,nfsvers=4
     state: mounted
+  debugger: on_failed
