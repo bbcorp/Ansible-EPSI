@@ -23,9 +23,9 @@
     value: "{{ item.value }}"
   loop:
     - { option: "server-id", value: "2"}
-    - { option: "master-host", value: mariadb_replication_master}
-    - { option: "master-user", value: mariadb_replication_user}
-    - { option: "master-password", value: mariadb_replication_password}
+    - { option: "master-host", value: "{{ mariadb_replication_master }}"}
+    - { option: "master-user", value: "{{ mariadb_replication_user }}"}
+    - { option: "master-password", value: "{{ mariadb_replication_password }}"}
     - { option: "master-port", value: "3306"}
   when:
     - mariadb_replication_role == 'slave'
