@@ -9,7 +9,7 @@
     - { option: "log-bin", value: "/var/log/mysql/mysql-bin.log"}
     - { option: "log-error", value: "/var/log/mysql/mysql-error.log"}
     - { option: "server-id", value: "1"}
-    - { option: "binlog-do-db", value: "db1"}
+    - { option: "binlog-do-db", value: "wordpress"}
   when:
     - mariadb_replication_role == 'master'
     - mariadb_replication_master | length > 0
