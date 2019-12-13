@@ -1,3 +1,4 @@
 ---
 # tasks file for common
 - include_tasks: install_nfs.yml
+- include_tasks: nfs_client.yml

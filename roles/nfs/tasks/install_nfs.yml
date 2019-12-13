@@ -1,13 +1,13 @@
 ---
-- name: install keapalived
+- name: install nfs
   apt:
-    name: keepalived
+    name: nfs-kernel-server
     update_cache: true
 
-- name: deploying keepalived config
+- name: deploying nfs config
   template:
-    src: keepalived.conf.j2
-    dest: /etc/keepalived/keepalived.conf
+    src: exports.j2
+    dest: /etc/exports
     mode: 0644
   notify:
-    - reload keepalived
+    - reload nfs
