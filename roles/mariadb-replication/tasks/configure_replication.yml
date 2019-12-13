@@ -55,8 +55,8 @@
     password: "{{ mariadb_replication_password }}"
     priv: '*.*:REPLICATION SLAVE,REPLICATION CLIENT'
     host: "{{ mariadb_replication_host | default('%') }}"
-    login_user: root
-    login_password: "{{ mariadb_root_password }}"
+    # login_user: root
+    # login_password: "{{ mariadb_root_password }}"
     config_file: /etc/mysql/debian.cnf
     # login_unix_socket: "{{ mariadb_socket }}"
     state: present
@@ -65,8 +65,9 @@
 - name: Check slave replication status.
   mysql_replication:
     mode: getslave
-    login_user: root
-    login_password: "{{ mariadb_root_password }}"
+    # login_user: root
+    # login_password: "{{ mariadb_root_password }}"
+    config_file: /etc/mysql/debian.cnf
     # login_unix_socket: "{{ mariadb_socket }}"
   ignore_errors: true
   register: slave
@@ -77,8 +78,9 @@
 - name: Check master replication status.
   mysql_replication:
     mode: getmaster
-    login_user: root
-    login_password: "{{ mariadb_root_password }}"
+    # login_user: root
+    # login_password: "{{ mariadb_root_password }}"
+    config_file: /etc/mysql/debian.cnf
     # login_unix_socket: "{{ mariadb_socket }}"
   delegate_to: "{{ mariadb_replication_master }}"
   register: master
