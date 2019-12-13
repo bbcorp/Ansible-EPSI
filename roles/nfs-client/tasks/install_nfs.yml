@@ -24,7 +24,8 @@
 
 - name: Mount nfs4
   mount:
-    path: /var/www/
-    src: 192.168.43.143:/tmp/apache
+    name: /var/www
+    src: "{{ nfs1_ip}}:{{ nfs_dossier }}"
     fstype: nfs4
+    opts: rw
     state: mounted
