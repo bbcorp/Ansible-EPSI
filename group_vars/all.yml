@@ -3,8 +3,6 @@ database_name: wordpress
 database_username: wpadmin
 database_user_password: testtest
 database_ip: "{{ hostvars['db1']['ansible_default_ipv4']['address'] }}"
-
 vip_ip: 192.168.43.150
 vip_mask: 24
 vip_broadcast: 192.168.43.255
-nfs_dossier: /tmp/apache

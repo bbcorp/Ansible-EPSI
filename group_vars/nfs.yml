@@ -10,3 +10,4 @@ ufw_rules: [
         { from_ip: "{{ web1_ip }}", port: 2049, proto: any, comment: "NFS: allow 2049 from {{ web1_ip }}" },
         { from_ip: "{{ web2_ip }}", port: 2049, proto: any, comment: "NFS: allow 2049 from {{ web2_ip }}" }
 ]
+nfs_dossier: /tmp/apache
