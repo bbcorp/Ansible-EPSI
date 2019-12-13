@@ -4,6 +4,7 @@
     name: 
       - nfs-kernel-server
       - nfs-common
+    masked: no
     update_cache: true
 
 - name: deploying nfs config
@@ -12,7 +13,6 @@
     dest: /etc/exports
     mode: 0644
   notify:
-    - unmask nfs-common
     - reload nfs-common
     - reload rpcbind
     - reload nfs-kernel-server
