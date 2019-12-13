@@ -4,3 +4,8 @@ haproxy_ip_server_web2: "{{ hostvars['web2']['ansible_default_ipv4']['address'] 
 vip_ip: 192.168.43.150
 vip_mask: 24
 vip_broadcast: 192.168.43.255
+ufw_enable: true
+ufw_default_input_policy: REJECT
+ufw_rules: [
+        { port: 80, proto: tcp, comment: "HTTP: allow 80 from any" }
+]
