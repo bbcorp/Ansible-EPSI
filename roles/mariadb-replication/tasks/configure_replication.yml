@@ -85,7 +85,6 @@
     # login_user: root
     # login_password: "{{ mariadb_root_password }}"
     config_file: /etc/mysql/debian.cnf
-    #  login_unix_socket: "{{ mariadb_socket }}"
   delegate_to: "{{ mariadb_replication_master }}"
   register: master
   when:
