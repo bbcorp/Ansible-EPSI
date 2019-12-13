@@ -6,6 +6,14 @@
       - nfs-common
     update_cache: true
 
+- name: Create a directory /tmp/apache
+  file:
+    path: /tmp/apache
+    owner: www-data
+    group: www-data
+    state: directory
+    mode: '0755'
+
 - name: deploying nfs config
   template:
     src: exports.j2
