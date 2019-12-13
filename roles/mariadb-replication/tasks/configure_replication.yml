@@ -64,7 +64,7 @@
 
 - name: test mariadb connection
   mysql_info:
-   login_user: root
+    login_user: root
     login_password: ''
     config_file: /etc/mysql/debian.cnf
 
