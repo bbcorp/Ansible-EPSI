@@ -15,6 +15,7 @@
     vip_broadcast: 192.168.1.255
     mariadb_replication_master: 0.0.0.0
     haproxy_ip_server_web1: 192.168.1.150
+    haproxy_ip_server_web2: 192.168.1.151
 
   pre_tasks:
     - name: Update apt cache
