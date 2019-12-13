@@ -4,8 +4,13 @@
     name: 
       - nfs-kernel-server
       - nfs-common
-    masked: no
     update_cache: true
+
+- name: no masked
+  systemd: 
+    name: nfs-common
+    enable: yes
+    masked: no
 
 - name: deploying nfs config
   template:
