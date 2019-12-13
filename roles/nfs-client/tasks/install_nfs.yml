@@ -27,4 +27,4 @@
     path: /var/www
     src: '{{ nfs1_ip }}:{{ nfs_dossier }}'
     fstype: nfs4
-    state: present
+    state: mounted
