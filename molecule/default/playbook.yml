@@ -30,6 +30,8 @@
     - role: ufw
     - role: mariadb
     - role: mariadb-replication
+    - role: nfs-server
+    - role: nfs-client
     - role: apache
     - role: wordpress
     - role: haproxy
