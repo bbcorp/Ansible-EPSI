@@ -6,6 +6,6 @@ mariadb_replication_master: "{{ hostvars['db1']['ansible_default_ipv4']['address
 # UFW custom rules
 web1_ip: "{{ hostvars['web1']['ansible_default_ipv4']['address'] }}"
 web2_ip: "{{ hostvars['web2']['ansible_default_ipv4']['address'] }}"
-# UFW
+ # UFW
 ufw_enable: true
 ufw_default_input_policy: REJECT
