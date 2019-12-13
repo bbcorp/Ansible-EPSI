@@ -1,7 +1,9 @@
 ---
 # MariaDB replication
 mariadb_replication_role: slave
+db1_ip: "{{ hostvars['db1']['ansible_default_ipv4']['address'] }}"
 ufw_rules: [
         { from_ip: "{{ web1_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web1_ip }}" },
-        { from_ip: "{{ web2_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web2_ip }}" }
+        { from_ip: "{{ web2_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web2_ip }}" },
+        { from_ip: "{{ db1_ip }}", port: 3306, proto: tcp, comment: "MySQL replication: allow 3306 from {{ db1_ip }}" }
 ]
