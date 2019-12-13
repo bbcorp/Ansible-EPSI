@@ -1,5 +1,13 @@
 ---
 # handlers file for common
+- name: unmask nfs-common
+  systemd:
+    state: unmask
+    daemon_reload: true
+    name: nfs-common
+    enabled: true
+    masked: false
+
 - name: reload nfs-common
   systemd:
     state: restarted
