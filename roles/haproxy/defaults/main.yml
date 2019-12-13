@@ -1,7 +1,4 @@
 ---
 # defaults file for haproxy
-haproxy_ip_server_web1: "{{ hostvars['web1']['ansible_default_ipv4']['address'] }}"
-haproxy_ip_server_web2: "{{ hostvars['web2']['ansible_default_ipv4']['address'] }}"
-
 haproxy_port: 80
 haproxy_mode: http
