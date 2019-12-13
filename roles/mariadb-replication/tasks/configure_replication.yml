@@ -1,5 +1,5 @@
 ---
-- name: Mariadb configure replication master
+- name: Mariadb configure replication master cnf
   ini_file:
     dest: /etc/mysql/mariadb.conf.d/50-server.cnf
     section: mysqld
@@ -11,6 +11,27 @@
     - { option: "server-id", value: "1"}
     - { option: "binlog-do-db", value: "db1"}
   notify: restart MariaDB service
+    - mariadb_replication_role == 'master'
+    - mariadb_replication_master | length > 0
+
+- name: Mariadb configure replication slave cnf
+  ini_file:
+    dest: /etc/mysql/mariadb.conf.d/50-server.cnf
+    section: mysqld
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  loop:
+    - { option: "server-id", value: "2"}
+    - { option: "master-host", value: mariadb_replication_master}
+    - { option: "master-user", value: mariadb_replication_user}
+    - { option: "master-password", value: mariadb_replication_password}
+    - { option: "master-port", value: "3306"}
+  notify: restart MariaDB service
+    - mariadb_replication_role == 'slave'
+    - mariadb_replication_master | length > 0
+    - mariadb_replication_user is defined
+
+
 
 - name: Ensure log bin and log error exists and rights ok
   file:
