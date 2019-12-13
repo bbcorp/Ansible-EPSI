@@ -8,3 +8,8 @@ web2
  
 [db]
 db1
+db2
+
+[nfs]
+nfs1
+nfs2
