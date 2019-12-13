@@ -8,4 +8,5 @@ vhost_alias: wordpress.example.local
 vhost_root_directory: /var/www/wordpress
 vhost_log: /var/log/apache2/wordpress.log
 vhost_conf_file: wordpress
-nfs1_ip: "{{ hostvars['nfs1']['ansible_default_ipv4']['address'] }}"
+nfs1_ip: 192.167.43.143
+#"{{ hostvars['nfs1']['ansible_default_ipv4']['address'] }}"

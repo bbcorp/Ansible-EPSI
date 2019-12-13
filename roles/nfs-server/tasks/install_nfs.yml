@@ -16,7 +16,8 @@
     - reload rpcbind
     - reload nfs-kernel-server
   
-- name: /etc/default/nfscommon
+- name: /etc/default/nfs-common
   lineinfile:
-    path: /etc/default/nfscommon
+    path: /etc/default/nfs-common
+    regxp: '^NEED_IDMAPD='
     line: 'NEED_IDMAPD=yes'

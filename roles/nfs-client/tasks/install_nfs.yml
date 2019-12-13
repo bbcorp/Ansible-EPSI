@@ -22,6 +22,6 @@
 - name: Mount nfs4
   mount:
     path: /var/www
-    src: '{{ nfs_ip }}:/var/www'
+    src: '{{ nfs1_ip }}:/var/www'
     fstype: nfs4
     state: present
