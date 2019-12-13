@@ -6,20 +6,12 @@
       - nfs-common
     update_cache: true
 
-- name: no masked
-  systemd: 
-    name: nfs-common
-    enabled: yes
-    masked: no
-    daemon_reload: yes
-
 - name: deploying nfs config
   template:
     src: exports.j2
     dest: /etc/exports
     mode: 0644
   notify:
-    - reload nfs-common
     - reload rpcbind
     - reload nfs-kernel-server
    
