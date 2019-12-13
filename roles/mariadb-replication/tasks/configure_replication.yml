@@ -61,17 +61,6 @@
     state: present
   when: mariadb_replication_role == 'master'
 
-- name: Check slave replication status.
-  mysql_replication:
-    mode: getslave
-    login_user: "{{ mariadb_replication_user }}"
-    login_password: "{{ mariadb_replication_password }}"
-  ignore_errors: true
-  register: slave
-  when:
-    - mariadb_replication_role == 'slave'
-    - mariadb_replication_master | length > 0
-
 - name: Check master replication status.
   mysql_replication:
     mode: getmaster
@@ -82,6 +71,17 @@
   register: master
   when:
     - (slave.Is_Slave is defined and not slave.Is_Slave) or (slave.Is_Slave is not defined and slave is failed)
+    - mariadb_replication_role == 'slave'
+    - mariadb_replication_master | length > 0
+
+- name: Check slave replication status.
+  mysql_replication:
+    mode: getslave
+    login_user: "{{ mariadb_replication_user }}"
+    login_password: "{{ mariadb_replication_password }}"
+  ignore_errors: true
+  register: slave
+  when:
     - mariadb_replication_role == 'slave'
     - mariadb_replication_master | length > 0
 
