@@ -64,8 +64,8 @@
 - name: Check slave replication status.
   mysql_replication:
     mode: getslave
-    login_user: "{{ mariadb_login_user }}"
-    login_password: "{{ mariadb_login_password }}"
+    # login_user: "{{ mariadb_login_user }}"
+    # login_password: "{{ mariadb_login_password }}"
     login_unix_socket: "{{ mariadb_socket }}"
   ignore_errors: true
   register: slave
