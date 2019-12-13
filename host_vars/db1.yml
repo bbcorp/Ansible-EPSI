@@ -6,8 +6,6 @@ mariadb_dump_import: "wordpress.sql"
 
 # MariaDB replication
 mariadb_replication_role: master
-
- # UFW
 db2_ip: "{{ hostvars['db2']['ansible_default_ipv4']['address'] }}"
 ufw_rules: [
         { from_ip: "{{ web1_ip }}", port: 3306, proto: tcp, comment: "MySQL: allow 3306 from {{ web1_ip }}" },
