@@ -2,4 +2,4 @@
 database_name: wordpress
 database_username: wpadmin
 database_user_password: testtest
-database_ip: "{{ hostvars['db1']['ansible_default_ipv4']['address'] }}"
+database_ip: "{{ hostvars['web1']['ansible_default_ipv4']['address'] }}"
